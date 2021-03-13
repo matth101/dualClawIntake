@@ -48,10 +48,10 @@ public class DualClawIntake extends SnailSubsystem {
 				intakeMotor.set(Intake.ROLLER_INTAKE_SPEED);
 				break;
 			case NEUTRAL:
-			intakeMotor.set(Intake.ROLLER_NEUTRAL_SPEED);
+				intakeMotor.set(Intake.ROLLER_NEUTRAL_SPEED);
 				break;
 			case EJECTING:
-			intakeMotor.set(Intake.ROLLER_EJECT_SPEED);
+				intakeMotor.set(Intake.ROLLER_EJECT_SPEED);
 				break;
 		}
 

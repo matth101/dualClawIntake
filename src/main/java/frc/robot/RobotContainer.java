@@ -72,11 +72,11 @@ public class RobotContainer {
      * Define button -> command mappings.
      */
     private void configureButtonBindings() {
-		operatorController.getButton(Button.kA.value).whileActiveOnce(new IntakeIntakeCommand(intake));
-		operatorController.getButton(Button.kB.value).whileActiveOnce(new IntakeEjectCommand(intake));
+		operatorController.getButton(Button.kA.value).whileActiveContinuous(new IntakeIntakeCommand(intake), false); // continue even if interrupted
+		operatorController.getButton(Button.kB.value).whileActiveContinuous(new IntakeEjectCommand(intake), false);
 
-		operatorController.getButton(Button.kX.value).whileActiveOnce(new ClawOpenCommand(intake));
-		operatorController.getButton(Button.kY.value).whileActiveOnce(new ClawCloseCommand(intake));
+		operatorController.getButton(Button.kX.value).whenPressed(new ClawOpenCommand(intake)); // like a toggle
+		operatorController.getButton(Button.kY.value).whenPressed(new ClawCloseCommand(intake));
     }
 
     /**

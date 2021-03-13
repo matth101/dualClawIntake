@@ -20,12 +20,11 @@ public class IntakeNeutralCommand extends CommandBase {
     @Override
     public void execute() {
         intake.neutral();
-        intake.close(); // close on default
     }
 
     @Override
     public void end(boolean interrupted) {
-        intake.neutral();
+
     }
 
     @Override

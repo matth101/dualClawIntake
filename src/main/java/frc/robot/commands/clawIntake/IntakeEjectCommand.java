@@ -24,8 +24,8 @@ public class IntakeEjectCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        intake.neutral();
     }
+    
 
     @Override
     public boolean isFinished() {

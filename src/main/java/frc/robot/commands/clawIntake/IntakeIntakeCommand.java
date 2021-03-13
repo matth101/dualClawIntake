@@ -24,7 +24,7 @@ public class IntakeIntakeCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        intake.neutral();
+        
     }
 
     @Override
