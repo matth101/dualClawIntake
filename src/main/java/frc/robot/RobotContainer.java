@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 import static frc.robot.Constants.ElectricalLayout.CONTROLLER_DRIVER_ID;
 import static frc.robot.Constants.ElectricalLayout.CONTROLLER_OPERATOR_ID;
-import static frc.robot.Constants.UPDATE_PERIOD;;
+import static frc.robot.Constants.UPDATE_PERIOD;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -30,9 +30,9 @@ public class RobotContainer {
     private SnailController driveController;
     private SnailController operatorController;
     
-	private ArrayList<SnailSubsystem> subsystems;
-	private DualClawIntake intake;
-
+    private ArrayList<SnailSubsystem> subsystems;
+    private DualClawIntake intake;
+    
     private Notifier updateNotifier;
     private int outputCounter;
 
@@ -63,7 +63,7 @@ public class RobotContainer {
 		intake = new DualClawIntake();
 		intake.setDefaultCommand(new IntakeNeutralCommand(intake));
 
-		// add each of the subsystems to the arraylist here
+        // add each of the subsystems to the arraylist here
         subsystems = new ArrayList<>();
         subsystems.add(intake);
     }
@@ -72,11 +72,11 @@ public class RobotContainer {
      * Define button -> command mappings.
      */
     private void configureButtonBindings() {
-		operatorController.getButton(Button.kA.value).whileActiveContinuous(new IntakeIntakeCommand(intake), false); // continue even if interrupted
-		operatorController.getButton(Button.kB.value).whileActiveContinuous(new IntakeEjectCommand(intake), false);
+		operatorController.getButton(Button.kA.value).whileHeld(new IntakeIntakeCommand(intake)); 
+		operatorController.getButton(Button.kB.value).whileHeld(new IntakeEjectCommand(intake));
 
-		operatorController.getButton(Button.kX.value).whenPressed(new ClawOpenCommand(intake)); // like a toggle
-		operatorController.getButton(Button.kY.value).whenPressed(new ClawCloseCommand(intake));
+		operatorController.getButton(Button.kX.value).whileActiveContinuous(new ClawOpenCommand(intake), false); // like a toggle, continue even if interrupted
+		operatorController.getButton(Button.kY.value).whileActiveContinuous(new ClawCloseCommand(intake), false);
     }
 
     /**
