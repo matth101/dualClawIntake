@@ -59,9 +59,9 @@ public class RobotContainer {
      * Declare all of our subsystems and their default bindings
      */
     private void configureSubsystems() {
-		// declare each of the subsystems here
-		intake = new DualClawIntake();
-		intake.setDefaultCommand(new IntakeNeutralCommand(intake));
+        // declare each of the subsystems here
+        intake = new DualClawIntake();
+        intake.setDefaultCommand(new IntakeNeutralCommand(intake));
 
         // add each of the subsystems to the arraylist here
         subsystems = new ArrayList<>();
