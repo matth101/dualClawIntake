@@ -41,7 +41,7 @@ public class RobotContainer {
      */
     public RobotContainer() {
         driveController = new SnailController(CONTROLLER_DRIVER_ID);
-		operatorController = new SnailController(CONTROLLER_OPERATOR_ID);
+        operatorController = new SnailController(CONTROLLER_OPERATOR_ID);
 
         configureSubsystems();
         configureAutoChoosers();
@@ -72,11 +72,11 @@ public class RobotContainer {
      * Define button -> command mappings.
      */
     private void configureButtonBindings() {
-		operatorController.getButton(Button.kA.value).whileHeld(new IntakeIntakeCommand(intake)); 
-		operatorController.getButton(Button.kB.value).whileHeld(new IntakeEjectCommand(intake));
-
-		operatorController.getButton(Button.kX.value).whileActiveContinuous(new ClawOpenCommand(intake), false); // like a toggle, continue even if interrupted
-		operatorController.getButton(Button.kY.value).whileActiveContinuous(new ClawCloseCommand(intake), false);
+        operatorController.getButton(Button.kA.value).whileHeld(new IntakeIntakeCommand(intake)); 
+        operatorController.getButton(Button.kB.value).whileHeld(new IntakeEjectCommand(intake));
+        
+        operatorController.getButton(Button.kX.value).whileActiveContinuous(new ClawOpenCommand(intake), false); // like a toggle, continue even if interrupted
+        operatorController.getButton(Button.kY.value).whileActiveContinuous(new ClawCloseCommand(intake), false);
     }
 
     /**

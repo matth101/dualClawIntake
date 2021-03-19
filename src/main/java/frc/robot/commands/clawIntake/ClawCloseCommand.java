@@ -29,6 +29,6 @@ public class ClawCloseCommand extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return false;
+        return true;
     }
 }
